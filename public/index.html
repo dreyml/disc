@@ -114,7 +114,15 @@
             <p>Na próxima evolução, suas escolhas serão combinadas ao perfil percebido no papel profissional atual.</p>
           </div>
         </div>
-        <div class="result-actions"><button id="restart-button" class="secondary-button" type="button">JOGAR NOVAMENTE</button><button class="primary-button" type="button" disabled title="Disponível após integração com o backend">RELATÓRIO EM BREVE</button></div>
+        <div class="result-actions"><button id="restart-button" class="secondary-button" type="button">JOGAR NOVAMENTE</button><button id="report-button" class="primary-button" type="button">ABRIR RELATÓRIO</button></div>
+      </section>
+
+      <section id="report-screen" class="screen report-screen" aria-labelledby="report-title">
+        <div class="report-toolbar no-print">
+          <button id="report-back" class="secondary-button" type="button">VOLTAR AO RESULTADO</button>
+          <button id="report-print" class="primary-button" type="button">SALVAR COMO PDF</button>
+        </div>
+        <article id="report-document" class="report-document"></article>
       </section>
 
       <footer><p>Ferramenta destinada a desenvolvimento e comunicação. Não deve ser usada para contratação, demissão ou promoção.</p><span>DISC FUNCIONAL · MVP 01</span></footer>
