@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#09051a" />
+    <meta name="description" content="DISC Funcional — uma jornada arcade sobre comportamento observável no trabalho." />
+    <title>DISC Funcional · Arcade</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2309051a'/%3E%3Cpath d='M14 18h22c10 0 16 6 16 14s-6 14-16 14H14V18Zm12 9v10h10c3 0 5-2 5-5s-2-5-5-5H26Z' fill='%235cf2ff'/%3E%3Cpath d='M14 46h12V18H14z' fill='%23ff4fd8' opacity='.75'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#game">Pular para o jogo</a>
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <main id="game" class="cabinet">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="DISC Funcional — início">
+          <span class="brand-mark" aria-hidden="true">DF</span>
+          <span><strong>DISC</strong><small>FUNCIONAL</small></span>
+        </a>
+        <div class="topbar-meta">
+          <span class="signal"><i></i> VERSÃO PRELIMINAR</span>
+          <button id="sound-toggle" class="icon-button" type="button" aria-pressed="false" aria-label="Ativar efeitos sonoros">♪</button>
+        </div>
+      </header>
+
+      <section id="start-screen" class="screen start-screen active" aria-labelledby="start-title">
+        <div class="start-copy">
+          <p class="eyebrow">MISSÃO DE AUTOCONHECIMENTO</p>
+          <h1 id="start-title">DESCUBRA SEU<br /><span>MODO DE JOGO</span></h1>
+          <p class="lead">Explore como você tende a decidir, comunicar e colaborar no trabalho. Não existem classes melhores — apenas estratégias diferentes.</p>
+
+          <div class="mission-facts" aria-label="Informações da missão">
+            <div><span>⏱</span><strong>10–12</strong><small>MINUTOS</small></div>
+            <div><span>◇</span><strong>7</strong><small>CONTEXTOS</small></div>
+            <div><span>◎</span><strong>4</strong><small>FATORES</small></div>
+          </div>
+
+          <form id="player-form" class="player-form">
+            <label for="player-name">IDENTIFICAÇÃO DO JOGADOR</label>
+            <div class="input-row">
+              <input id="player-name" name="playerName" type="text" autocomplete="name" maxlength="60" placeholder="Digite seu primeiro nome" required />
+              <button class="primary-button" type="submit"><span>INICIAR MISSÃO</span><kbd>ENTER</kbd></button>
+            </div>
+            <label class="consent"><input id="consent" type="checkbox" required /><span>Concordo com o uso das respostas para gerar meu relatório. Posso solicitar a exclusão dos dados.</span></label>
+          </form>
+        </div>
+
+        <aside class="arcade-display" aria-label="Mapa dos quatro modos de ação">
+          <div class="display-header"><span>MAPA DE ENERGIA</span><b>PLAYER 01</b></div>
+          <div class="disc-orbit" aria-hidden="true">
+            <div class="crosshair"></div>
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <span class="node node-d">D<small>DECIDIR</small></span>
+            <span class="node node-i">I<small>INSPIRAR</small></span>
+            <span class="node node-s">S<small>SUSTENTAR</small></span>
+            <span class="node node-c">C<small>ANALISAR</small></span>
+            <div class="core">READY<span>?</span></div>
+          </div>
+          <p class="display-note">SEU RESULTADO MOSTRA TENDÊNCIAS, NÃO LIMITES.</p>
+        </aside>
+      </section>
+
+      <section id="quiz-screen" class="screen quiz-screen" aria-labelledby="mission-title">
+        <div class="hud">
+          <div class="player-chip"><span class="avatar">P1</span><span><small>JOGADOR</small><strong id="hud-name">—</strong></span></div>
+          <div class="level-progress">
+            <div class="level-label"><span id="mission-label">FASE 01</span><strong id="progress-label">1 / 7</strong></div>
+            <div class="progress-track" role="progressbar" aria-label="Progresso" aria-valuemin="1" aria-valuemax="7" aria-valuenow="1"><i id="progress-bar"></i></div>
+          </div>
+          <button id="exit-button" class="text-button" type="button">SAIR</button>
+        </div>
+
+        <div class="stage-layout">
+          <aside class="mission-panel">
+            <p class="eyebrow">CONTEXTO ATUAL</p>
+            <div id="mission-icon" class="mission-icon">⚡</div>
+            <h2 id="mission-title">TOMADA DE DECISÃO</h2>
+            <p id="mission-help">Escolha o comportamento que mais e o que menos representa você.</p>
+            <div class="key-help"><span><kbd>1–4</kbd> ESCOLHER</span><span><kbd>M</kbd> MAIS</span><span><kbd>L</kbd> MENOS</span></div>
+          </aside>
+
+          <div class="challenge-panel">
+            <div class="challenge-number">DESAFIO <strong id="challenge-number">01</strong></div>
+            <p id="question-text" class="question-text"></p>
+            <div id="answer-grid" class="answer-grid" role="group" aria-label="Alternativas"></div>
+            <div class="selection-legend"><span class="legend-most"><i>+</i> MAIS PARECIDO COMIGO</span><span class="legend-least"><i>−</i> MENOS PARECIDO COMIGO</span></div>
+            <div class="quiz-actions"><button id="back-button" class="secondary-button" type="button">VOLTAR</button><button id="next-button" class="primary-button" type="button" disabled>CONFIRMAR ESCOLHAS</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="result-screen" class="screen result-screen" aria-labelledby="result-title">
+        <div class="result-heading">
+          <p class="eyebrow">MISSÃO CONCLUÍDA</p>
+          <h1 id="result-title">SEU PAINEL DE <span>ATRIBUTOS</span></h1>
+          <p id="result-summary">Este ensaio visual usa uma amostra curta. O relatório definitivo será calculado com os 50 itens revisados.</p>
+        </div>
+        <div class="result-grid">
+          <div class="profile-card">
+            <div class="profile-badge" id="profile-badge">D</div>
+            <div><small>TENDÊNCIA DESTA DEMONSTRAÇÃO</small><h2 id="profile-name">AÇÃO DIRETA</h2><p id="profile-copy"></p></div>
+          </div>
+          <div class="stats-card">
+            <h3>MAPA DE ENERGIA</h3>
+            <div id="stat-bars" class="stat-bars"></div>
+          </div>
+          <div class="next-mission">
+            <span>PRÓXIMA FASE</span>
+            <h3>BANCO COMPLETO</h3>
+            <p>Na versão final, suas escolhas serão combinadas com intensidade, facetas e perfil de trabalho.</p>
+          </div>
+        </div>
+        <div class="result-actions"><button id="restart-button" class="secondary-button" type="button">JOGAR NOVAMENTE</button><button class="primary-button" type="button" disabled title="Disponível após integração com o backend">RELATÓRIO EM BREVE</button></div>
+      </section>
+
+      <footer><p>Ferramenta destinada a desenvolvimento e comunicação. Não deve ser usada para contratação, demissão ou promoção.</p><span>DISC FUNCIONAL · MVP 01</span></footer>
+    </main>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
