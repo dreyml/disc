@@ -2,6 +2,14 @@
 
 Base técnica da primeira etapa do MVP: esquema PostgreSQL, configuração versionada e módulo de pontuação testável.
 
+## Jornada adaptativa arcade
+
+- Banco inicial com 42 situações originais, seis para cada contexto funcional.
+- Cada jornada apresenta 21 itens comuns e 7 itens adaptativos: 28 missões, estimadas em 8–10 minutos.
+- O seletor prioriza facetas com pouca evidência, equilibra contextos, evita repetição consecutiva e ajuda a diferenciar fatores próximos.
+- A razão de seleção de cada item adaptativo fica disponível no objeto da jornada para futura auditoria no backend.
+- Esta seleção é heurística e preliminar; parâmetros psicométricos exigem amostra real e validação profissional.
+
 ## Decisões desta etapa
 
 - O produto mede tendências de comportamento observável; não mede competência e não serve para seleção.
@@ -25,4 +33,3 @@ node --test tests/scoring.test.ts
 - `config/model.v1.json`: pesos, faixas, limites e versão do modelo.
 - `src/scoring.ts`: cálculo puro, sem dependência da interface ou do banco.
 - `tests/scoring.test.ts`: casos nominais, extremos, equilíbrio, adaptação e validade.
-

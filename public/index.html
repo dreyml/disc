@@ -34,9 +34,9 @@
           <p class="lead">Explore como você tende a decidir, comunicar e colaborar no trabalho. Não existem classes melhores — apenas estratégias diferentes.</p>
 
           <div class="mission-facts" aria-label="Informações da missão">
-            <div><span>⏱</span><strong>10–12</strong><small>MINUTOS</small></div>
+            <div><span>⏱</span><strong>8–10</strong><small>MINUTOS</small></div>
             <div><span>◇</span><strong>7</strong><small>CONTEXTOS</small></div>
-            <div><span>◎</span><strong>4</strong><small>FATORES</small></div>
+            <div><span>◎</span><strong>28</strong><small>MISSÕES</small></div>
           </div>
 
           <form id="player-form" class="player-form">
@@ -69,7 +69,7 @@
           <div class="player-chip"><span class="avatar">P1</span><span><small>JOGADOR</small><strong id="hud-name">—</strong></span></div>
           <div class="level-progress">
             <div class="level-label"><span id="mission-label">FASE 01</span><strong id="progress-label">1 / 7</strong></div>
-            <div class="progress-track" role="progressbar" aria-label="Progresso" aria-valuemin="1" aria-valuemax="7" aria-valuenow="1"><i id="progress-bar"></i></div>
+            <div class="progress-track" role="progressbar" aria-label="Progresso" aria-valuemin="1" aria-valuemax="28" aria-valuenow="1"><i id="progress-bar"></i></div>
           </div>
           <button id="exit-button" class="text-button" type="button">SAIR</button>
         </div>
@@ -97,7 +97,7 @@
         <div class="result-heading">
           <p class="eyebrow">MISSÃO CONCLUÍDA</p>
           <h1 id="result-title">SEU PAINEL DE <span>ATRIBUTOS</span></h1>
-          <p id="result-summary">Este ensaio visual usa uma amostra curta. O relatório definitivo será calculado com os 50 itens revisados.</p>
+          <p id="result-summary">Sua jornada combina missões comuns e adaptativas para explorar seu comportamento sem tornar a experiência cansativa.</p>
         </div>
         <div class="result-grid">
           <div class="profile-card">
@@ -110,8 +110,8 @@
           </div>
           <div class="next-mission">
             <span>PRÓXIMA FASE</span>
-            <h3>BANCO COMPLETO</h3>
-            <p>Na versão final, suas escolhas serão combinadas com intensidade, facetas e perfil de trabalho.</p>
+            <h3>CAMADA DE TRABALHO</h3>
+            <p>Na próxima evolução, suas escolhas serão combinadas ao perfil percebido no papel profissional atual.</p>
           </div>
         </div>
         <div class="result-actions"><button id="restart-button" class="secondary-button" type="button">JOGAR NOVAMENTE</button><button class="primary-button" type="button" disabled title="Disponível após integração com o backend">RELATÓRIO EM BREVE</button></div>
@@ -120,6 +120,6 @@
       <footer><p>Ferramenta destinada a desenvolvimento e comunicação. Não deve ser usada para contratação, demissão ou promoção.</p><span>DISC FUNCIONAL · MVP 01</span></footer>
     </main>
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
-    <script src="app.js"></script>
+    <script type="module" src="app.js"></script>
   </body>
 </html>
