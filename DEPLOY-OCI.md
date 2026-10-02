@@ -27,7 +27,7 @@ sudo tar -C /etc -czf "/root/nginx-backups/nginx-$(date +%Y%m%d-%H%M%S).tar.gz" 
 
 ```bash
 sudo mkdir -p /var/www/disc
-sudo chown "$USER":www-data /var/www/disc
+sudo chown "$USER":"$USER" /var/www/disc
 git clone https://github.com/dreyml/disc.git /var/www/disc
 sudo find /var/www/disc -type d -exec chmod 755 {} \;
 sudo find /var/www/disc -type f -exec chmod 644 {} \;
