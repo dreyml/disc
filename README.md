@@ -27,6 +27,10 @@ Requer Node.js 22.6+ (execução nativa de TypeScript com sintaxe apagável):
 node --test tests/scoring.test.ts
 ```
 
+## Publicar na OCI
+
+Use o procedimento seguro para Nginx compartilhado em [`DEPLOY-OCI.md`](DEPLOY-OCI.md). O virtual host fornecido atende somente `disc.nxuslab.com` e não substitui as configurações dos demais sistemas.
+
 ## Estrutura
 
 - `db/schema.sql`: entidades, consentimento, auditoria e exclusão lógica/anonimização preparada.
