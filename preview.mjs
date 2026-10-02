@@ -7,7 +7,8 @@ const types = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=
 
 createServer(async (request, response) => {
   try {
-    const requested = request.url === "/" ? "index.html" : request.url.split("?")[0].slice(1);
+    const pathname = request.url.split("?")[0];
+    const requested = pathname === "/" ? "index.html" : pathname.slice(1);
     const path = normalize(join(root, requested));
     if (!path.startsWith(normalize(root))) throw new Error("invalid path");
     const body = await readFile(path);
